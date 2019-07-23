@@ -1,0 +1,16 @@
+#navbarHeader {
+    transition: display, max-height 0.2s ease-out;
+    max-height: 0px;
+
+    visibility: hidden;
+}
+
+#navbarHeader.collapse:not(.show) {
+    display: flex;
+}
+
+#navbarHeader.show {
+    transition: max-height 0.5s ease-in;
+    max-height: 1000px;
+    visibility: visible;
+}
