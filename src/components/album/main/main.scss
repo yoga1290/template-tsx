@@ -1,0 +1,14 @@
+main.jumbotron.hide {
+    display: none;
+}
+
+.youtube-container {
+    position: absolute;
+    width: 100%;
+    .youtube {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+    }
+}

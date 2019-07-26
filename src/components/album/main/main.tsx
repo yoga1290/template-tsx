@@ -1,34 +1,51 @@
 import React, { Component } from 'react';
 
+
 import { Card } from './card'
+import { Footer } from '../footer/footer'
+import { MainModel } from './model'
+import { CardModel } from './card/model'
 
 interface MainProps {
-    active?: boolean;
+    model: MainModel;
 }
 
 interface MainState {
-// value: number;
+    model: MainModel;
 }
   
 export class Main extends Component<MainProps, MainState> {
       constructor(props: MainProps) {
           super(props);
-          this.myFunc = this.myFunc.bind(this);
       }
-      
-      myFunc() {
-      }
-      
-      render = () => (<>
-        <main role="main">
 
-            <section className="jumbotron text-center">
+      componentWillReceiveProps({ model }: MainProps) {
+        this.setState({ model });  
+      }
+      
+      render = () => {
+
+        let { model } = Object.assign({}, this.state, this.props);
+        let {
+            title,
+            description,
+            cards
+        } = model;
+
+        // let youtubeVideoId = '';
+
+        return <>
+        <main role="main">
+            {/* <div className="youtube-container">
+                <iframe className="youtube" src={`https://www.youtube.com/embed/${youtubeVideoId}?controls=0&autoplay=1&loop=1`} frameborder="0" allow="accelerometer; autoplay; loop; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div> */}
+            <section className={`jumbotron text-center ${(title || description) ? '':'hide'}`}>
                 <div className="container">
-                    <h1 className="jumbotron-heading">Album example</h1>
-                    <p className="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+                    <h1 className="jumbotron-heading">{ title }</h1>
+                    <p className="lead text-muted">{ description }</p>
                     <p>
-                    <a href="#" className="btn btn-primary my-2">Main call to action</a>
-                    <a href="#" className="btn btn-secondary my-2">Secondary action</a>
+                    {/* <a href="#" className="btn btn-primary my-2">TODO</a>
+                    <a href="#" className="btn btn-secondary my-2">ToDo2</a> */}
                     </p>
                 </div>
             </section>
@@ -38,19 +55,20 @@ export class Main extends Component<MainProps, MainState> {
 
                     <div className="row">
                         
-                            {new Array(9).fill(0).map(() => (
+                            {cards? cards.map( (card: CardModel) => (
                                 <div className="col-md-4">
                                     <Card
-                                        text="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
-                                        time={ new Date().getTime() - 1000*60*10 }
+                                        model={ card }
                                     />
                                 </div>
-                            ))}
+                            )): ''}
                             
                     </div>
                 </div>
             </div>
 
         </main>
-      </>)
+        <Footer
+            model={{}}/>
+      </>}
   }

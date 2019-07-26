@@ -1,0 +1,76 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "id": "http://yourdomain.com/schemas/myschema.json",
+    "minProperties": 0,
+    "maxProperties": 5,
+    "additionalProperties": false,
+    "dependencies": {
+    },
+    "required": [
+       "header",
+       "main"
+    ],
+    "definitions": {
+         "header": {
+            "required": [
+                "appName"
+            ],
+            "properties": {
+                "appName": { "$ref": "#/definitions/appName" },
+                "about": { "$ref": "#/definitions/about" },
+                "contact": { "$ref": "#/definitions/contact" },
+                "image": { "$ref": "#/definitions/image" }
+            }
+        },
+        "main": {
+            "properties": {
+                "title": { "$ref": "#/definitions/title" },
+                "description": { "$ref": "#/definitions/description" },
+                "cards": { "$ref": "#/definitions/cards" }
+            }
+        },
+        "cards": {
+            "type": "array",
+            "items": { "$ref": "#/definitions/card" }
+        },
+        "time": {
+            "type": "integer"
+        },
+        "card": {
+            "properties": {
+                "text": { "$ref": "#/definitions/text" },
+                "image": { "$ref": "#/definitions/image" },
+                "time": { "$ref": "#/definitions/time" },
+                "links": { "$ref": "#/definitions/links" }
+            }
+        },
+        "text": {
+            "type": "string"
+        },
+        "title": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+         "appName": {
+            "type": "string"
+        },
+         "about": {
+            "type": "string"
+        },
+         "contact": {
+            "type": "string"
+        },
+         "image": {
+            "type": "string"
+        },
+        "links": {
+            "type": "object"
+        }
+    },
+    "properties": {
+        "header": { "$ref": "#/definitions/header" },
+        "main": { "$ref": "#/definitions/main" }
+    }
+  }
