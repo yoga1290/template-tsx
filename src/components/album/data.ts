@@ -25,7 +25,7 @@ class Body implements MainModel {
         image:'https://getbootstrap.com/docs/4.3/assets/img/examples/album.png',
         time: (new Date().getTime()-60*60*10*1000),
         links: {
-            'Edit': '#/album/edit'
+            'Edit': '/album/edit'
         }
     }, {
         text:'Pricing',
