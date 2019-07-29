@@ -11,7 +11,7 @@ interface MainProps {
 }
 
 interface MainState {
-    model: MainModel;
+    model?: MainModel;
 }
   
 export class Main extends Component<MainProps, MainState> {
