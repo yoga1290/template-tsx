@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SmallPostModel, StringMap } from './model'
+import { SmallPostModel } from './model'
 
 interface SmallPostProps {
     model: SmallPostModel;
@@ -22,13 +22,13 @@ export class FeaturedPost
       }
 
       render = () => {
-        let { model } = Object.assign({}, this.props, this.state)
+        // let { model } = Object.assign({}, this.props, this.state)
         
-        let {
-            links,
-            title,
-            description
-        } = model;
+        // let {
+        //     links,
+        //     title,
+        //     description
+        // } = model;
 
       return <>
             <div className="card flex-md-row mb-4 box-shadow h-md-250">

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FeaturedPostModel, StringMap } from './model'
+import { FeaturedPostModel } from './model'
 
 interface FeaturedPostProps {
     model: FeaturedPostModel;
